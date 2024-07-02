@@ -92,20 +92,12 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/spf13/pflag"
-
 	vtrpcpb "github.com/earayu/sqlparser/go/vt/proto/vtrpc"
 )
 
 // logErrStacks controls whether or not printing errors includes the
 // embedded stack trace in the output.
 var logErrStacks bool
-
-// RegisterFlags registers the command-line options that control vterror
-// behavior on the provided FlagSet.
-func RegisterFlags(fs *pflag.FlagSet) {
-	fs.BoolVar(&logErrStacks, "log_err_stacks", false, "log stack traces for errors")
-}
 
 // New returns an error with the supplied message.
 // New also records the stack trace at the point it was called.

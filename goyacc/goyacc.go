@@ -56,8 +56,6 @@ import (
 	"strconv"
 	"strings"
 	"unicode"
-
-	"github.com/spf13/pflag"
 )
 
 // the following are adjustable
@@ -160,19 +158,11 @@ var foutput *bufio.Writer    // y.output file
 
 var writtenImports bool // output file has recorded an import of "fmt"
 
-var oflag string  // -o [y.go]		- y.go file
-var vflag string  // -v [y.output]	- y.output file
-var lflag bool    // -l			- disable line directives
-var prefix string // name prefix for identifiers, default yy
-var allowFastAppend bool
-
-func init() {
-	pflag.StringVarP(&oflag, "output", "o", "y.go", "parser output")
-	pflag.StringVarP(&prefix, "prefix", "p", "yy", "name prefix to use in generated code")
-	pflag.StringVarP(&vflag, "verbose-output", "v", "y.output", "create parsing tables")
-	pflag.BoolVarP(&lflag, "disable-line-directives", "l", false, "disable line directives")
-	pflag.BoolVarP(&allowFastAppend, "fast-append", "f", false, "enable fast-append optimization")
-}
+var oflag = "y.go"     // -o [y.go]		- y.go file
+var vflag = "y.output" // -v [y.output]	- y.output file
+var lflag = false      // -l			- disable line directives
+var prefix = "yy"      // name prefix for identifiers, default yy
+var allowFastAppend = false
 
 var initialstacksize = 16
 
@@ -382,10 +372,6 @@ func setup() {
 	stderr = bufio.NewWriter(os.Stderr)
 	foutput = nil
 
-	pflag.Parse()
-	if pflag.NArg() != 1 {
-		usage()
-	}
 	if initialstacksize < 1 {
 		// never set so cannot happen
 		fmt.Fprintf(stderr, "yacc: stack size too small\n")
@@ -1600,7 +1586,7 @@ loop:
 }
 
 func openup() {
-	infile = pflag.Arg(0)
+	infile = os.Args[0]
 	finput = open(infile)
 	if finput == nil {
 		errorf("cannot open %v", infile)
