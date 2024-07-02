@@ -19,9 +19,9 @@ package sqltypes
 import (
 	"google.golang.org/protobuf/proto"
 
-	"github.com/earayu/sqlparser/go/vt/vterrors"
+	"github.com/wesql/sqlparser/go/vt/vterrors"
 
-	querypb "github.com/earayu/sqlparser/go/vt/proto/query"
+	querypb "github.com/wesql/sqlparser/go/vt/proto/query"
 )
 
 // This file contains the proto3 conversion functions for the structures

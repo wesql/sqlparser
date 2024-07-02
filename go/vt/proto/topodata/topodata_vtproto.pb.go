@@ -11,7 +11,7 @@ import (
 	io "io"
 	math "math"
 	bits "math/bits"
-	vttime "github.com/earayu/sqlparser/go/vt/proto/vttime"
+	vttime "github.com/wesql/sqlparser/go/vt/proto/vttime"
 )
 
 const (

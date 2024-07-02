@@ -26,7 +26,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	querypb "github.com/earayu/sqlparser/go/vt/proto/query"
+	querypb "github.com/wesql/sqlparser/go/vt/proto/query"
 )
 
 const (

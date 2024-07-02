@@ -30,11 +30,11 @@ import (
 	"strconv"
 	"strings"
 
-	vtrpcpb "github.com/earayu/sqlparser/go/vt/proto/vtrpc"
-	"github.com/earayu/sqlparser/go/vt/vterrors"
+	vtrpcpb "github.com/wesql/sqlparser/go/vt/proto/vtrpc"
+	"github.com/wesql/sqlparser/go/vt/vterrors"
 
-	"github.com/earayu/sqlparser/go/sqltypes"
-	querypb "github.com/earayu/sqlparser/go/vt/proto/query"
+	"github.com/wesql/sqlparser/go/sqltypes"
+	querypb "github.com/wesql/sqlparser/go/vt/proto/query"
 )
 
 // Generate all the AST helpers using the tooling in `go/tools`

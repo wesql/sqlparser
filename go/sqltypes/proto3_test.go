@@ -22,9 +22,9 @@ import (
 	"github.com/stretchr/testify/require"
 	"google.golang.org/protobuf/proto"
 
-	querypb "github.com/earayu/sqlparser/go/vt/proto/query"
-	vtrpcpb "github.com/earayu/sqlparser/go/vt/proto/vtrpc"
-	"github.com/earayu/sqlparser/go/vt/vterrors"
+	querypb "github.com/wesql/sqlparser/go/vt/proto/query"
+	vtrpcpb "github.com/wesql/sqlparser/go/vt/proto/vtrpc"
+	"github.com/wesql/sqlparser/go/vt/vterrors"
 )
 
 func TestResult(t *testing.T) {

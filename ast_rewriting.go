@@ -25,10 +25,10 @@ import (
 	"strconv"
 	"strings"
 
-	querypb "github.com/earayu/sqlparser/go/vt/proto/query"
-	vtrpcpb "github.com/earayu/sqlparser/go/vt/proto/vtrpc"
-	"github.com/earayu/sqlparser/go/vt/sysvars"
-	"github.com/earayu/sqlparser/go/vt/vterrors"
+	querypb "github.com/wesql/sqlparser/go/vt/proto/query"
+	vtrpcpb "github.com/wesql/sqlparser/go/vt/proto/vtrpc"
+	"github.com/wesql/sqlparser/go/vt/sysvars"
+	"github.com/wesql/sqlparser/go/vt/vterrors"
 )
 
 var (

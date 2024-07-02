@@ -33,8 +33,8 @@ import (
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
-	topodata "github.com/earayu/sqlparser/go/vt/proto/topodata"
-	vtrpc "github.com/earayu/sqlparser/go/vt/proto/vtrpc"
+	topodata "github.com/wesql/sqlparser/go/vt/proto/topodata"
+	vtrpc "github.com/wesql/sqlparser/go/vt/proto/vtrpc"
 )
 
 const (

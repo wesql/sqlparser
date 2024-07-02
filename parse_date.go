@@ -22,8 +22,8 @@ import (
 	"strings"
 	"time"
 
-	vtrpcpb "github.com/earayu/sqlparser/go/vt/proto/vtrpc"
-	"github.com/earayu/sqlparser/go/vt/vterrors"
+	vtrpcpb "github.com/wesql/sqlparser/go/vt/proto/vtrpc"
+	"github.com/wesql/sqlparser/go/vt/vterrors"
 )
 
 var dateFormats = []string{"2006-01-02", "06-01-02", "20060102", "060102"}

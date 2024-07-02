@@ -1,4 +1,4 @@
-module github.com/earayu/sqlparser
+module github.com/wesql/sqlparser
 
 go 1.22.3
 

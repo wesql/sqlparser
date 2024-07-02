@@ -29,10 +29,10 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/earayu/sqlparser/go/sqltypes"
-	querypb "github.com/earayu/sqlparser/go/vt/proto/query"
-	vtrpcpb "github.com/earayu/sqlparser/go/vt/proto/vtrpc"
-	"github.com/earayu/sqlparser/go/vt/vterrors"
+	"github.com/wesql/sqlparser/go/sqltypes"
+	querypb "github.com/wesql/sqlparser/go/vt/proto/query"
+	vtrpcpb "github.com/wesql/sqlparser/go/vt/proto/vtrpc"
+	"github.com/wesql/sqlparser/go/vt/vterrors"
 )
 
 func TestNormalize(t *testing.T) {

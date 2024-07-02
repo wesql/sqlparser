@@ -28,11 +28,11 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	tabletpb "github.com/earayu/sqlparser/go/vt/proto/topodata"
+	tabletpb "github.com/wesql/sqlparser/go/vt/proto/topodata"
 
 	"github.com/stretchr/testify/assert"
 
-	querypb "github.com/earayu/sqlparser/go/vt/proto/query"
+	querypb "github.com/wesql/sqlparser/go/vt/proto/query"
 )
 
 func TestSplitComments(t *testing.T) {

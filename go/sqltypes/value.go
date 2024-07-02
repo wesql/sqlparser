@@ -27,11 +27,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/earayu/sqlparser/go/bytes2"
-	querypb "github.com/earayu/sqlparser/go/vt/proto/query"
-	"github.com/earayu/sqlparser/go/vt/proto/vtrpc"
-	vtrpcpb "github.com/earayu/sqlparser/go/vt/proto/vtrpc"
-	"github.com/earayu/sqlparser/go/vt/vterrors"
+	"github.com/wesql/sqlparser/go/bytes2"
+	querypb "github.com/wesql/sqlparser/go/vt/proto/query"
+	"github.com/wesql/sqlparser/go/vt/proto/vtrpc"
+	vtrpcpb "github.com/wesql/sqlparser/go/vt/proto/vtrpc"
+	"github.com/wesql/sqlparser/go/vt/vterrors"
 )
 
 var (

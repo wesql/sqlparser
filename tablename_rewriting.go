@@ -6,8 +6,8 @@ Licensed under the Apache v2(found in the LICENSE file in the root directory).
 package sqlparser
 
 import (
-	vtrpcpb "github.com/earayu/sqlparser/go/vt/proto/vtrpc"
-	"github.com/earayu/sqlparser/go/vt/vterrors"
+	vtrpcpb "github.com/wesql/sqlparser/go/vt/proto/vtrpc"
+	"github.com/wesql/sqlparser/go/vt/vterrors"
 )
 
 func RewriteTableName(in Statement, keyspace string) (Statement, bool, error) {

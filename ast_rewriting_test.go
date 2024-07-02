@@ -27,7 +27,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/earayu/sqlparser/go/vt/sysvars"
+	"github.com/wesql/sqlparser/go/vt/sysvars"
 
 	"github.com/stretchr/testify/require"
 )

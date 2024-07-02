@@ -20,7 +20,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/earayu/sqlparser/go/sqltypes"
+	"github.com/wesql/sqlparser/go/sqltypes"
 )
 
 func TestEncodable(t *testing.T) {

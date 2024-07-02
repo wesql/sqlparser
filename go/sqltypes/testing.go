@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"strings"
 
-	querypb "github.com/earayu/sqlparser/go/vt/proto/query"
+	querypb "github.com/wesql/sqlparser/go/vt/proto/query"
 )
 
 // Functions in this file should only be used for testing.

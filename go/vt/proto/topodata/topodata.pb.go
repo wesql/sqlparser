@@ -31,7 +31,7 @@ import (
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
-	vttime "github.com/earayu/sqlparser/go/vt/proto/vttime"
+	vttime "github.com/wesql/sqlparser/go/vt/proto/vttime"
 )
 
 const (

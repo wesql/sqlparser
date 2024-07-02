@@ -19,7 +19,7 @@ package sqltypes
 import (
 	"testing"
 
-	querypb "github.com/earayu/sqlparser/go/vt/proto/query"
+	querypb "github.com/wesql/sqlparser/go/vt/proto/query"
 )
 
 func TestRepair(t *testing.T) {

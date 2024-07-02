@@ -16,7 +16,7 @@ limitations under the License.
 
 package sqlparser
 
-import querypb "github.com/earayu/sqlparser/go/vt/proto/query"
+import querypb "github.com/wesql/sqlparser/go/vt/proto/query"
 
 // RedactSQLQuery returns a sql string with the params stripped out for display
 func RedactSQLQuery(sql string) (string, error) {

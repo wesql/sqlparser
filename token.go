@@ -21,7 +21,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/earayu/sqlparser/go/sqltypes"
+	"github.com/wesql/sqlparser/go/sqltypes"
 )
 
 const (

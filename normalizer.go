@@ -20,9 +20,9 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/earayu/sqlparser/go/sqltypes"
+	"github.com/wesql/sqlparser/go/sqltypes"
 
-	querypb "github.com/earayu/sqlparser/go/vt/proto/query"
+	querypb "github.com/wesql/sqlparser/go/vt/proto/query"
 )
 
 // BindVars is a set of reserved bind variables from a SQL statement

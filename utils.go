@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"sort"
 
-	querypb "github.com/earayu/sqlparser/go/vt/proto/query"
+	querypb "github.com/wesql/sqlparser/go/vt/proto/query"
 )
 
 // QueryMatchesTemplates sees if the given query has the same fingerprint as one of the given templates

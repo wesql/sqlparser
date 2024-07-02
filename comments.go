@@ -26,9 +26,9 @@ import (
 	"strings"
 	"unicode"
 
-	tabletpb "github.com/earayu/sqlparser/go/vt/proto/topodata"
+	tabletpb "github.com/wesql/sqlparser/go/vt/proto/topodata"
 
-	querypb "github.com/earayu/sqlparser/go/vt/proto/query"
+	querypb "github.com/wesql/sqlparser/go/vt/proto/query"
 )
 
 const (

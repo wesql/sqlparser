@@ -21,14 +21,14 @@ import (
 	"fmt"
 	"strings"
 
-	vtrpcpb "github.com/earayu/sqlparser/go/vt/proto/vtrpc"
-	"github.com/earayu/sqlparser/go/vt/vterrors"
+	vtrpcpb "github.com/wesql/sqlparser/go/vt/proto/vtrpc"
+	"github.com/wesql/sqlparser/go/vt/vterrors"
 
-	"github.com/earayu/sqlparser/go/bytes2"
+	"github.com/wesql/sqlparser/go/bytes2"
 
-	"github.com/earayu/sqlparser/go/sqltypes"
+	"github.com/wesql/sqlparser/go/sqltypes"
 
-	querypb "github.com/earayu/sqlparser/go/vt/proto/query"
+	querypb "github.com/wesql/sqlparser/go/vt/proto/query"
 )
 
 // ParsedQuery represents a parsed query where

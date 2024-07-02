@@ -23,9 +23,9 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/earayu/sqlparser/go/vt/vterrors"
+	"github.com/wesql/sqlparser/go/vt/vterrors"
 
-	vtrpcpb "github.com/earayu/sqlparser/go/vt/proto/vtrpc"
+	vtrpcpb "github.com/wesql/sqlparser/go/vt/proto/vtrpc"
 )
 
 var versionFlagSync sync.Once

@@ -22,7 +22,7 @@ limitations under the License.
 package sqlparser
 
 import (
-	"github.com/earayu/sqlparser/go/sqltypes"
+	"github.com/wesql/sqlparser/go/sqltypes"
 )
 
 // Format formats the node.

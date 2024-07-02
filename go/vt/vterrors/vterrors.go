@@ -92,7 +92,7 @@ import (
 	"fmt"
 	"io"
 
-	vtrpcpb "github.com/earayu/sqlparser/go/vt/proto/vtrpc"
+	vtrpcpb "github.com/wesql/sqlparser/go/vt/proto/vtrpc"
 )
 
 // logErrStacks controls whether or not printing errors includes the

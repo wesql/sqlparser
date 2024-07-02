@@ -24,7 +24,7 @@ package sqlparser
 
 import (
 	"fmt"
-	"github.com/earayu/sqlparser/go/sqltypes"
+	"github.com/wesql/sqlparser/go/sqltypes"
 )
 
 // formatFast formats the node.

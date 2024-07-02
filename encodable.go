@@ -19,7 +19,7 @@ package sqlparser
 import (
 	"strings"
 
-	"github.com/earayu/sqlparser/go/sqltypes"
+	"github.com/wesql/sqlparser/go/sqltypes"
 )
 
 // This file contains types that are 'Encodable'.

@@ -20,7 +20,7 @@ import (
 	"strings"
 	"testing"
 
-	querypb "github.com/earayu/sqlparser/go/vt/proto/query"
+	querypb "github.com/wesql/sqlparser/go/vt/proto/query"
 )
 
 func TestTypeValues(t *testing.T) {
