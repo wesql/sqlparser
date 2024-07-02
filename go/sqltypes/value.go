@@ -28,8 +28,6 @@ import (
 	"strings"
 
 	"github.com/earayu/sqlparser/go/bytes2"
-	"github.com/earayu/sqlparser/go/hack"
-
 	querypb "github.com/earayu/sqlparser/go/vt/proto/query"
 	"github.com/earayu/sqlparser/go/vt/proto/vtrpc"
 	vtrpcpb "github.com/earayu/sqlparser/go/vt/proto/vtrpc"
@@ -245,7 +243,7 @@ func (v Value) Raw() []byte {
 // of a byte slice. This is equivalent to calling `string(v.Raw())` but does
 // not allocate.
 func (v Value) RawStr() string {
-	return hack.String(v.val)
+	return string(v.val)
 }
 
 // ToBytes returns the value as MySQL would return it as []byte.
@@ -320,7 +318,7 @@ func (v Value) ToString() string {
 	if v.typ == Expression {
 		return ""
 	}
-	return hack.String(v.val)
+	return string(v.val)
 }
 
 // String returns a printable version of the value.
