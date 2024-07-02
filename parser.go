@@ -23,7 +23,6 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/earayu/sqlparser/go/vt/log"
 	"github.com/earayu/sqlparser/go/vt/vterrors"
 
 	vtrpcpb "github.com/earayu/sqlparser/go/vt/proto/vtrpc"
@@ -85,7 +84,6 @@ func Parse2(sql string) (Statement, BindVars, error) {
 			if typ, val := tokenizer.Scan(); typ != 0 {
 				return nil, nil, fmt.Errorf("extra characters encountered after end of DDL: '%s'", string(val))
 			}
-			log.Warningf("ignoring error parsing DDL '%s': %v", sql, tokenizer.LastError)
 			switch x := tokenizer.partialDDL.(type) {
 			case DBDDLStatement:
 				x.SetFullyParsed(false)

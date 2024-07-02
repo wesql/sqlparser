@@ -33,8 +33,6 @@ import (
 	vtrpcpb "github.com/earayu/sqlparser/go/vt/proto/vtrpc"
 	"github.com/earayu/sqlparser/go/vt/vterrors"
 
-	"github.com/earayu/sqlparser/go/vt/log"
-
 	"github.com/earayu/sqlparser/go/sqltypes"
 	querypb "github.com/earayu/sqlparser/go/vt/proto/query"
 )
@@ -452,7 +450,6 @@ func ReplaceExpr(root, from, to Expr) Expr {
 
 	expr, success := tmp.(Expr)
 	if !success {
-		log.Errorf("Failed to rewrite expression. Rewriter returned a non-expression:  %s", String(tmp))
 		return from
 	}
 
