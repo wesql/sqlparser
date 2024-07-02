@@ -19,7 +19,7 @@ package sqlparser
 import (
 	"strings"
 
-	"vitess.io/vitess/go/sqltypes"
+	"github.com/earayu/sqlparser/go/sqltypes"
 )
 
 // This file contains types that are 'Encodable'.

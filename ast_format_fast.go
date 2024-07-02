@@ -24,7 +24,7 @@ package sqlparser
 
 import (
 	"fmt"
-	"vitess.io/vitess/go/sqltypes"
+	"github.com/earayu/sqlparser/go/sqltypes"
 )
 
 // formatFast formats the node.

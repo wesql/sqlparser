@@ -28,7 +28,7 @@ import (
 
 	"google.golang.org/protobuf/proto"
 
-	querypb "vitess.io/vitess/go/vt/proto/query"
+	querypb "github.com/earayu/sqlparser/go/vt/proto/query"
 )
 
 // Result represents a query result.

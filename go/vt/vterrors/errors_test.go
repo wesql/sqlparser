@@ -28,7 +28,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	vtrpcpb "vitess.io/vitess/go/vt/proto/vtrpc"
+	vtrpcpb "github.com/earayu/sqlparser/go/vt/proto/vtrpc"
 )
 
 func TestWrapNil(t *testing.T) {

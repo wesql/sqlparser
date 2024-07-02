@@ -1,4 +1,4 @@
-module vitess.io/vitess
+module github.com/earayu/sqlparser
 
 go 1.22.3
 

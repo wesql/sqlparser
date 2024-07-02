@@ -17,7 +17,7 @@ limitations under the License.
 
 package sqltypes
 
-import hack "vitess.io/vitess/go/hack"
+import hack "github.com/earayu/sqlparser/go/hack"
 
 func (cached *Result) CachedSize(alloc bool) int64 {
 	if cached == nil {

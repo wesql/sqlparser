@@ -12,8 +12,8 @@ import (
 	math "math"
 	bits "math/bits"
 	sync "sync"
-	topodata "vitess.io/vitess/go/vt/proto/topodata"
-	vtrpc "vitess.io/vitess/go/vt/proto/vtrpc"
+	topodata "github.com/earayu/sqlparser/go/vt/proto/topodata"
+	vtrpc "github.com/earayu/sqlparser/go/vt/proto/vtrpc"
 )
 
 const (

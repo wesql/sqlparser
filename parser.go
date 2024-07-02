@@ -23,10 +23,10 @@ import (
 	"strings"
 	"sync"
 
-	"vitess.io/vitess/go/vt/log"
-	"vitess.io/vitess/go/vt/vterrors"
+	"github.com/earayu/sqlparser/go/vt/log"
+	"github.com/earayu/sqlparser/go/vt/vterrors"
 
-	vtrpcpb "vitess.io/vitess/go/vt/proto/vtrpc"
+	vtrpcpb "github.com/earayu/sqlparser/go/vt/proto/vtrpc"
 )
 
 var versionFlagSync sync.Once

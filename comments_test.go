@@ -28,11 +28,11 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	tabletpb "vitess.io/vitess/go/vt/proto/topodata"
+	tabletpb "github.com/earayu/sqlparser/go/vt/proto/topodata"
 
 	"github.com/stretchr/testify/assert"
 
-	querypb "vitess.io/vitess/go/vt/proto/query"
+	querypb "github.com/earayu/sqlparser/go/vt/proto/query"
 )
 
 func TestSplitComments(t *testing.T) {

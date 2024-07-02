@@ -27,13 +27,13 @@ import (
 	"strconv"
 	"strings"
 
-	"vitess.io/vitess/go/bytes2"
-	"vitess.io/vitess/go/hack"
+	"github.com/earayu/sqlparser/go/bytes2"
+	"github.com/earayu/sqlparser/go/hack"
 
-	querypb "vitess.io/vitess/go/vt/proto/query"
-	"vitess.io/vitess/go/vt/proto/vtrpc"
-	vtrpcpb "vitess.io/vitess/go/vt/proto/vtrpc"
-	"vitess.io/vitess/go/vt/vterrors"
+	querypb "github.com/earayu/sqlparser/go/vt/proto/query"
+	"github.com/earayu/sqlparser/go/vt/proto/vtrpc"
+	vtrpcpb "github.com/earayu/sqlparser/go/vt/proto/vtrpc"
+	"github.com/earayu/sqlparser/go/vt/vterrors"
 )
 
 var (

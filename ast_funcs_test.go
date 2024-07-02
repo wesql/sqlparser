@@ -23,8 +23,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"vitess.io/vitess/go/sqltypes"
-	querypb "vitess.io/vitess/go/vt/proto/query"
+	"github.com/earayu/sqlparser/go/sqltypes"
+	querypb "github.com/earayu/sqlparser/go/vt/proto/query"
 )
 
 func TestAddQueryHint(t *testing.T) {
