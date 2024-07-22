@@ -32,10 +32,10 @@ import (
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
 	sync "sync"
-	binlogdata "vitess.io/vitess/go/vt/proto/binlogdata"
-	query "vitess.io/vitess/go/vt/proto/query"
-	topodata "vitess.io/vitess/go/vt/proto/topodata"
-	vtrpc "vitess.io/vitess/go/vt/proto/vtrpc"
+	binlogdata "github.com/wesql/sqlparser/go/vt/proto/binlogdata"
+	query "github.com/wesql/sqlparser/go/vt/proto/query"
+	topodata "github.com/wesql/sqlparser/go/vt/proto/topodata"
+	vtrpc "github.com/wesql/sqlparser/go/vt/proto/vtrpc"
 )
 
 const (
