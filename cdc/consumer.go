@@ -396,7 +396,7 @@ func (cc *CdcConsumer) ExecuteBatch(
 		log.Fatalf("failed to store gtid and lastpk: %v", err)
 	}
 	// store table data
-	err = SpiStoreTableData(resultList, cc.ColumnInfoMap, cc.PkFields, cc)
+	err = SpiStoreTableData(resultList, cc)
 	if err != nil {
 		log.Fatalf("failed to store table data: %v", err)
 	}

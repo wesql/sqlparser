@@ -20,7 +20,7 @@ var SpiStoreGtidAndLastPK = func(currentGTID string, currentPK *querypb.QueryRes
 	return nil
 }
 
-var SpiStoreTableData = func(resultList []*RowResult, colInfoMap map[string]*ColumnInfo, pkFields []*querypb.Field, cc *CdcConsumer) error {
+var SpiStoreTableData = func(resultList []*RowResult, cc *CdcConsumer) error {
 	return nil
 }
 
