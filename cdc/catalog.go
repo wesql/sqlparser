@@ -1,3 +1,7 @@
+/*
+Copyright ApeCloud, Inc.
+Licensed under the Apache v2(found in the LICENSE file in the root directory).
+*/
 package cdc
 
 import (
@@ -20,7 +24,7 @@ type ColumnInfo struct {
 	SeqInIndex  int
 }
 
-func (cc *CdcConsumer) ReloadColInfoMap(tableSchema, tableName string) (map[string]*ColumnInfo, error) {
+func (cc *CdcConsumer) ReloadColInfoMap(tableSchema, tableName string) error {
 	colInfoMap := make(map[string]*ColumnInfo)
 	query := fmt.Sprintf(`SELECT
             c.COLUMN_NAME,
@@ -46,24 +50,24 @@ func (cc *CdcConsumer) ReloadColInfoMap(tableSchema, tableName string) (map[stri
 
 	resp, err := cc.VtgateClient.Execute(cc.Ctx, &vtgatepb.ExecuteRequest{Query: &querypb.BoundQuery{Sql: query}})
 	if err != nil {
-		return nil, err
+		return err
 	}
 	if resp.Error != nil {
-		return nil, fmt.Errorf("failed to execute query: %v", resp.Error)
+		return fmt.Errorf("failed to execute query: %v", resp.Error)
 	}
 	qr := sqltypes.CustomProto3ToResult(resp.Result.Fields, resp.Result)
 	for _, row := range qr.Rows {
 		isPk, err := row[5].ToBool()
 		if err != nil {
-			return nil, err
+			return err
 		}
 		isGenerated, err := row[6].ToBool()
 		if err != nil {
-			return nil, err
+			return err
 		}
 		seqInIndex, err := row[7].ToInt64()
 		if err != nil {
-			return nil, err
+			return err
 		}
 		colInfo := &ColumnInfo{
 			Name:        row[0].ToString(),
@@ -77,7 +81,8 @@ func (cc *CdcConsumer) ReloadColInfoMap(tableSchema, tableName string) (map[stri
 		}
 		colInfoMap[colInfo.Name] = colInfo
 	}
-	return colInfoMap, nil
+	cc.ColumnInfoMap = colInfoMap
+	return nil
 }
 
 func getPkColumnInfo(colInfoMap map[string]*ColumnInfo) []*ColumnInfo {

@@ -30,6 +30,7 @@ type CdcConsumer struct {
 	EventReader vtgateservice.Vitess_VStreamClient
 
 	ColumnInfoMap map[string]*ColumnInfo
+	PkFields      []*querypb.Field
 }
 
 func NewCdcConsumer() (cc *CdcConsumer) {
@@ -46,14 +47,14 @@ func NewCdcConsumer() (cc *CdcConsumer) {
 func (cc *CdcConsumer) Open() {
 	// 1. Connect to the vtgate server.
 	cc.VtgateClient, cc.VtgateCloseFunc = openWeScaleClient()
-	SpiOpen(cc.VtgateClient)
+	SpiOpen(cc)
 	// 2. Build ColumnInfo Map
 	cc.ReloadColInfoMap(DefaultConfig.TableSchema, DefaultConfig.SourceTableName)
 }
 
 func (cc *CdcConsumer) Close() {
 	cc.VtgateCloseFunc()
-	SpiClose(cc.VtgateClient)
+	SpiClose(cc)
 }
 
 func (cc *CdcConsumer) Run() {
@@ -82,7 +83,7 @@ func (cc *CdcConsumer) Run() {
 			switch event.Type {
 			case binlogdatapb.VEventType_FIELD:
 				fields = event.FieldEvent.Fields
-				pkFields = getPkFields(cc.ColumnInfoMap, fields)
+				cc.PkFields = getPkFields(cc.ColumnInfoMap, fields)
 			case binlogdatapb.VEventType_ROW:
 				resultList = ProcessRowEvent(event, fields, resultList)
 			case binlogdatapb.VEventType_VGTID:
@@ -100,7 +101,7 @@ func (cc *CdcConsumer) Run() {
 				if len(resultList) == 0 {
 					continue
 				}
-				ExecuteBatch(cc.Ctx, cc.VtgateClient, cc.ColumnInfoMap, pkFields, currentGTID, currentPK, resultList)
+				cc.ExecuteBatch(currentGTID, currentPK, resultList)
 				// clear the result list
 				resultList = make([]*RowResult, 0)
 			case binlogdatapb.VEventType_COPY_COMPLETED:
@@ -165,7 +166,7 @@ func ProcessRowEvent(event *binlogdatapb.VEvent, fields []*querypb.Field, result
 }
 
 func (cc *CdcConsumer) StartVStream() {
-	lastGtid, lastPK, err := SpiLoadGTIDAndLastPK(cc.Ctx, cc.VtgateClient)
+	lastGtid, lastPK, err := SpiLoadGTIDAndLastPK(cc)
 	if err != nil {
 		log.Fatalf("failed to load gtid and lastpk: %v", err)
 	}
@@ -381,11 +382,7 @@ func GenerateUpdateSQL(rowResult *RowResult, pkFields []*querypb.Field, colInfoM
 	return updateSQL, nil
 }
 
-func ExecuteBatch(
-	ctx context.Context,
-	client vtgateservice.VitessClient,
-	colInfoMap map[string]*ColumnInfo,
-	pkFields []*querypb.Field,
+func (cc *CdcConsumer) ExecuteBatch(
 	currentGTID string,
 	currentPK *querypb.QueryResult,
 	resultList []*RowResult,
@@ -394,12 +391,12 @@ func ExecuteBatch(
 	// begin
 	queryList = append([]*querypb.BoundQuery{{Sql: "begin"}}, queryList...)
 	// store gtid and pk
-	err := SpiStoreGtidAndLastPK(currentGTID, currentPK, client)
+	err := SpiStoreGtidAndLastPK(currentGTID, currentPK, cc)
 	if err != nil {
 		log.Fatalf("failed to store gtid and lastpk: %v", err)
 	}
 	// store table data
-	err = SpiStoreTableData(resultList, colInfoMap, pkFields, client)
+	err = SpiStoreTableData(resultList, cc.ColumnInfoMap, cc.PkFields, cc)
 	if err != nil {
 		log.Fatalf("failed to store table data: %v", err)
 	}
@@ -408,7 +405,7 @@ func ExecuteBatch(
 		Sql: "commit",
 	})
 	// todo cdc: make sure it's actually in the same transaction
-	r, err := client.ExecuteBatch(ctx, &vtgatepb.ExecuteBatchRequest{Queries: queryList})
+	r, err := cc.VtgateClient.ExecuteBatch(cc.Ctx, &vtgatepb.ExecuteBatchRequest{Queries: queryList})
 	if err != nil {
 		log.Fatalf("failed to execute batch: %v", err)
 	}
