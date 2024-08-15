@@ -44,13 +44,3 @@ func checkFlags() error {
 	}
 	return nil
 }
-
-func mockConfig() {
-	DefaultConfig.TableSchema = "d1"
-	DefaultConfig.SourceTableName = "t1"
-	DefaultConfig.TargetTableName = "t2"
-	DefaultConfig.TargetMetaTableName = "t2_meta"
-	DefaultConfig.FilterStatement = "select * from t1"
-	DefaultConfig.WeScaleHost = "127.0.0.1"
-	DefaultConfig.WeScaleGrpcPort = "15991"
-}
